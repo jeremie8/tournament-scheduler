@@ -76,8 +76,8 @@ const pool2: Pool = {
   teams: [teamE, teamF, teamG, teamH],
 };
 
-const category1: Category = { id: 1, name: "Category 1", pools: [pool1] };
-const category2: Category = { id: 2, name: "Category 2", pools: [pool2] };
+const category1: Category = { id: 1, name: "C", pools: [pool1] };
+const category2: Category = { id: 2, name: "D", pools: [pool2] };
 
 // Define courts
 const court1: Court = { id: 1, timeSlots };
