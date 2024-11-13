@@ -10,7 +10,7 @@ function SchedulePreview({ schedule }: { schedule: Schedule }) {
   return (
     <div className="flex flex-row gap-32">
       <div className="min-w-44 space-y-2">
-        <h1>Teams</h1>
+        <h1 className="dark:text-white">Teams</h1>
         {schedule.tournament.categories.map((c) => (
           <div
             key={c.id}
@@ -21,15 +21,14 @@ function SchedulePreview({ schedule }: { schedule: Schedule }) {
               {c.pools
                 .flatMap((p) => p.teams)
                 .map((t) => (
-                  <div
-                    className={`transition-colors duration-200 rounded-md hover:cursor-pointer ${
-                      selectedTeam === t.id
-                        ? "bg-blue-200 hover:bg-blue-300"
-                        : "hover:bg-blue-100"
-                    }`}
-                    onClick={() => setSelectedTeam(t.id)}
-                  >
-                    <Team key={t.id} team={t} />
+                  <div onClick={() => setSelectedTeam(t.id)}>
+                    <Team
+                      key={t.id}
+                      team={t}
+                      state={selectedTeam === t.id ? "selected" : "default"}
+                      color="blue"
+                      cursor="cursor-pointer"
+                    />
                   </div>
                 ))}
             </div>
@@ -58,21 +57,21 @@ function SchedulePreview({ schedule }: { schedule: Schedule }) {
               </td>
               {timeSlotMatches.matches.map((match) => (
                 <td key={match.id} className="transition-colors duration-200">
-                  <div
-                    className={`rounded-md transition-colors duration-200 ${
-                      match.team1.id === selectedTeam ? "selectedTeam" : ""
-                    }`}
-                  >
-                    <Team team={match.team1} />{" "}
-                  </div>
+                  <Team
+                    team={match.team1}
+                    color={match.team1.id === selectedTeam ? "red" : "default"}
+                    state={
+                      match.team1.id === selectedTeam ? "selected" : "default"
+                    }
+                  />{" "}
                   <span className="text-slate-400">vs</span>{" "}
-                  <div
-                    className={`rounded-md transition-colors duration-200 ${
-                      match.team2.id === selectedTeam ? "selectedTeam" : ""
-                    }`}
-                  >
-                    <Team team={match.team2} />
-                  </div>
+                  <Team
+                    team={match.team2}
+                    color={match.team2.id === selectedTeam ? "red" : "default"}
+                    state={
+                      match.team2.id === selectedTeam ? "selected" : "default"
+                    }
+                  />
                 </td>
               ))}
             </tr>

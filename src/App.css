@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  color: black;
 }
 /* Basic table styling */
 table {
@@ -34,12 +35,17 @@ tbody tr:nth-child(odd) {
   background-color: #fff;
 }
 
-tbody tr:has(td div.selectedTeam) {
-  background-color: rgb(255, 234, 234);
+tbody tr:nth-child(even):has(td div.selectedTeam) {
+  background-color: rgb(253, 221, 221);
 }
 
+tbody tr:nth-child(odd):has(td div.selectedTeam) {
+  background-color: rgb(254, 235, 235);
+}
+
+
 td div.selectedTeam {
-  background-color: rgb(247, 163, 163);
+  background-color: #f7a3a3;
 }
 
 tbody td {
