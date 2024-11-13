@@ -55,11 +55,11 @@ export function Team({
       }`}
     >
       <img
-        src={team.logo}
-        alt={team.name}
+        src={team.logo ?? "https://placehold.co/100?text=" + team.id}
+        alt={team.name ?? "Team " + team.id}
         className={`rounded-full h-8 w-8 ${reverse ? "order-1" : "order-0"}`}
       />
-      <span>{team.name}</span>
+      <span>{team.name ?? "Team " + team.id}</span>
     </div>
   );
 }

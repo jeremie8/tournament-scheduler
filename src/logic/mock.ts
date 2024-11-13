@@ -51,7 +51,7 @@ const teamE: Team = {
 const teamF: Team = {
   id: 6,
   name: "Team Foxtrot",
-  logo: "https://placehold.co/100/gray/white?text=F",
+  logo: "https://placehold.co/100/purple/white?text=F",
 };
 const teamG: Team = {
   id: 7,
@@ -60,8 +60,6 @@ const teamG: Team = {
 };
 const teamH: Team = {
   id: 8,
-  name: "Team Hotel",
-  logo: "https://placehold.co/100/purple/white?text=H",
 };
 
 // Define pools and categories with 4 teams each
